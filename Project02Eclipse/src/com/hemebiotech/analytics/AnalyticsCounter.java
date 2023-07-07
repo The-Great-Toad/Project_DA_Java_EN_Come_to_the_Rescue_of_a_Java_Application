@@ -1,19 +1,14 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.util.*;
 
 public class AnalyticsCounter {
-	private ISymptomReader reader;
-	private ISymptomWriter writer;
+	private final ISymptomReader reader;
+	private final ISymptomWriter writer;
 	public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
 		this.reader = reader;
 		this.writer = writer;
 	}
-
-	public static void main(String args[]) {}
 
 	public List<String> getSymptoms() {
 		return reader.GetSymptoms();
