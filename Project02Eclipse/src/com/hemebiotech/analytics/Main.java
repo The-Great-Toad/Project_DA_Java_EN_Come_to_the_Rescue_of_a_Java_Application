@@ -1,5 +1,10 @@
 package com.hemebiotech.analytics;
 
+import com.hemebiotech.analytics.io.ISymptomReader;
+import com.hemebiotech.analytics.io.ISymptomWriter;
+import com.hemebiotech.analytics.io.ReadSymptomDataFromFile;
+import com.hemebiotech.analytics.io.WriteSymptomDataToFile;
+
 import java.util.List;
 import java.util.Map;
 

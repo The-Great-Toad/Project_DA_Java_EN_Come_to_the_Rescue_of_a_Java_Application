@@ -34,17 +34,18 @@ To run the application, you will need:
 ## File Structure
 ```
 .
-├── Project02Eclipse/                       # Input file (symptoms.txt) and other Eclipse-related files (if applicable)
+├── Project02Eclipse/                           # Input file (symptoms.txt) and other Eclipse-related files (if applicable)
 ├── src/
-│   └── com.hemebiotech.analytics/
-│       ├── ISymptomReader.java             # Interface for reading symptom data
-│       ├── ISymptomWriter.java             # Interface for writing symptom data
-│       ├── ReadSymptomDataFromFile.java    # Class for reading symptom data from a file
-│       ├── WriteSymptomDataToFile.java     # Class for writing symptom data to a file
-│       ├── AnalyticsCounter.java           # Class for analyzing symptom data, counting occurrences, and sorting
-│       └── Main.java                       # Main class for running the application
-├── .gitignore                              # List of files and directories to be ignored by Git
-└── README.md                               # This README file`
+│   ├── com.hemebiotech.analytics/
+│   │   └── io/
+│   │       ├── ISymptomReader.java             # Interface for reading symptom data
+│   │       ├── ISymptomWriter.java             # Interface for writing symptom data
+│   │       ├── ReadSymptomDataFromFile.java    # Class for reading symptom data from a file
+│   │       └── WriteSymptomDataToFile.java     # Class for writing symptom data to a file
+│   ├── AnalyticsCounter.java                   # Class for analyzing symptom data, counting occurrences, and sorting
+│   └── Main.java                               # Main class for running the application
+├── .gitignore                                  # List of files and directories to be ignored by Git
+└── README.md                                   # This README file`
 ```
 ## License
 
