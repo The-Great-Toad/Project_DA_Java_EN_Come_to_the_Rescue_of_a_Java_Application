@@ -1,7 +1,7 @@
 package com.hemebiotech.analytics;
 
-import com.hemebiotech.analytics.io.ISymptomReader;
-import com.hemebiotech.analytics.io.ISymptomWriter;
+import com.hemebiotech.analytics.io.reader.ISymptomReader;
+import com.hemebiotech.analytics.io.writer.ISymptomWriter;
 
 import java.util.*;
 
