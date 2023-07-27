@@ -18,17 +18,13 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
      *                 The keys are the names of the symptoms, and the values are the number of occurrences of each symptom.
      */
     @Override
-    public void writeSymptoms(Map<String, Integer> symptoms) {
+    public void writeSymptoms(Map<String, Integer> symptoms) throws IOException {
 
-        try {
-            FileWriter writer = new FileWriter ("result.out");
+        try (FileWriter writer = new FileWriter ("result.out")){
 
             for (Map.Entry<String, Integer> entry : symptoms.entrySet()) {
                 writer.write("%s : %d %n".formatted(entry.getKey(), entry.getValue()));
             }
-            writer.close();
-        } catch (IOException e) {
-            System.out.printf("[ERROR] %s %n", e.getMessage());
         }
     }
 }

@@ -30,21 +30,17 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 *         If an error occurs during the reading process or the file path is invalid, an empty list will be returned.
 	 */
 	@Override
-	public List<String> GetSymptoms() {
+	public List<String> GetSymptoms() throws IOException {
 		ArrayList<String> result = new ArrayList<>();
 
 		if (filepath != null) {
-			try {
-				BufferedReader reader = new BufferedReader (new FileReader(filepath));
+			try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
 				String line = reader.readLine();
 
 				while (line != null) {
 					result.add(line);
 					line = reader.readLine();
 				}
-				reader.close();
-			} catch (IOException e) {
-				e.printStackTrace();
 			}
 		}
 		return result;

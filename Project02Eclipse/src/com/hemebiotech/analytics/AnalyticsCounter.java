@@ -2,7 +2,10 @@ package com.hemebiotech.analytics;
 
 import com.hemebiotech.analytics.io.reader.ISymptomReader;
 import com.hemebiotech.analytics.io.writer.ISymptomWriter;
+import com.hemebiotech.analytics.logger.ILogger;
+import com.hemebiotech.analytics.logger.LoggerFile;
 
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -12,7 +15,7 @@ import java.util.*;
 public class AnalyticsCounter {
 	private final ISymptomReader reader;
 	private final ISymptomWriter writer;
-
+	private final ILogger logger = new LoggerFile("error.out");
 	/**
 	 * Constructs a new AnalyticsCounter instance with the provided ISymptomReader and ISymptomWriter.
 	 *
@@ -30,7 +33,12 @@ public class AnalyticsCounter {
 	 * @return A list of strings representing the symptoms read from the file.
 	 */
 	public List<String> getSymptoms() {
-		return reader.GetSymptoms();
+		try {
+			return reader.GetSymptoms();
+		} catch (IOException e) {
+			logger.logError("Error while reading symptom data: " + e.getMessage());
+			return new ArrayList<>(); // ou renvoyez null ou une liste vide selon votre logique
+		}
 	}
 
 	/**
@@ -69,6 +77,10 @@ public class AnalyticsCounter {
 	 *                 The map represents the symptom data to be written.
 	 */
 	public void writeSymptoms(Map<String, Integer> symptoms) {
-		writer.writeSymptoms(symptoms);
+		try {
+			writer.writeSymptoms(symptoms);
+		} catch (IOException e) {
+			logger.logError("Error while writing symptom data: " + e.getMessage());
+		}
 	}
 }

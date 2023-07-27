@@ -1,5 +1,6 @@
 package com.hemebiotech.analytics.io.writer;
 
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -14,5 +15,5 @@ public interface ISymptomWriter {
      *                 The map represents the symptom data to be written.
      *                 The keys are the names of the symptoms, and the values are the number of occurrences of each symptom.
      */
-    void writeSymptoms(Map<String, Integer> symptoms);
+    void writeSymptoms(Map<String, Integer> symptoms) throws IOException;
 }
